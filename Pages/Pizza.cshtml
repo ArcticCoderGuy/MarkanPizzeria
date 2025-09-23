@@ -1,8 +1,32 @@
 ﻿@page
 @model MarkanPizzeria.Pages.PizzaModel
 @{
+    ViewData["Title"] = "Pizzas";
 }
 
+<div class="text-center">
+    <div class="mainText">
+        <h1 class="display-4 text-capitalize text-black">Our great selection of Pizzas!</h1>
+        <h4>Choose one, or try our Pizza Builder! Then Order and Done!</h4>
+        <h4>No need to give any of your details!</h4>
+        <h4>We already know everything</h4>
+        <p class="smallText"><i>Only one pizza per order.</i></p>
+    </div>
 
-<a class="nav-link text-dark" asp-area="" asp-page="Forms/CustomPizza">CustomPizza</a>
-<a class="nav-link text-dark" asp-area="" asp-page="Checkout/Checkout">Checkout</a>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 mb-5 mt-5">
+                <div class="makeYourOwnDiv d-flex flex-wrap align-items-center">
+                    <div class="col-12 col-md-4">
+                        <img src="~/images/Create.png" class="w-100 rounded shadow" alt="Create your own pizza" />
+                    </div>
+                    <div class="col-12 col-md-8 makeYourOwnText">
+                        <h3 class="text-start">Create your own Pizza</h3>
+                        <p class="text-start">Make your own Pizza with our PizzaMaker!</p>
+                        <a class="btn btn-primary" asp-area="" asp-page="/Form/CustomPizza">TRY NOW!</a>
+                    </div>
+                </div> <!-- /makeYourOwnDiv -->
+            </div>
+        </div>
+    </div>
+</div>
