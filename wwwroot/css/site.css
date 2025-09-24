@@ -35,16 +35,14 @@ body {
     letter-spacing: 2px;
 }
 .smallText {
-    text-align: right;
-    color: grey;
+    text-align:right;
+    color:gray;
 
 }
 
 .makeYourOwnDiv {
-    background-color: #808080; /* Harmaa */
-    padding: 40px;
-    border-radius: 20px;
-    margin: 40px 20px;
+    background:gray;
+    margin:0;
 }
 
 .makeYourOwnText {
