@@ -1,32 +1,58 @@
 ﻿@page
 @model MarkanPizzeria.Pages.PizzaModel
 @{
-    ViewData["Title"] = "Pizzas";
 }
 
 <div class="text-center">
     <div class="mainText">
-        <h1 class="display-4 text-capitalize text-black">Our great selection of Pizzas!</h1>
-        <h4>Choose one, or try our Pizza Builder! Then Order and Done!</h4>
+        <h1 class="display-4 text-capitalize text-black">Our Great Selection Of Pizzas</h1>
+        <h4>Choose one, or try our Pizza Builder! Then order and done!</h4>
         <h4>No need to give any of your details!</h4>
-        <h4>We already know everything</h4>
+        <h4>We already know everything!</h4>
         <p class="smallText"><i>Only one pizza per order.</i></p>
     </div>
 
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-10 mb-5 mt-5">
-                <div class="makeYourOwnDiv d-flex flex-wrap align-items-center">
-                    <div class="col-12 col-md-4">
-                        <img src="~/images/Create.png" class="w-100 rounded shadow" alt="Create your own pizza" />
+        <div class="row">
+
+            <!-- Create your own -hero -->
+            <div class="col-12 mb-5 mt-5">
+                <div class="w-100 row makeYourOwnDiv">
+                    <div class="col-4">
+                        <img class="w-100"
+                             src="@Url.Content("~/images/Create.png")"
+                             asp-append-version="true"
+                             alt="Create your own" />
                     </div>
-                    <div class="col-12 col-md-8 makeYourOwnText">
-                        <h3 class="text-start">Create your own Pizza</h3>
-                        <p class="text-start">Make your own Pizza with our PizzaMaker!</p>
-                        <a class="btn btn-primary" asp-area="" asp-page="/Forms/CustomPizza">TRY NOW!</a>
+                    <div class="col-8 align-items-center">
+                        <div class="align-middle makeYourOwnText">
+                            <h3 class="text-start">Create your own Pizza</h3>
+                            <p class="text-start">Make your own Pizza with our PizzaMaker!</p>
+                            <a class="btn btn-primary" style="float:left" asp-page="Forms/CustomPizza">Try now!</a>
+                        </div>
                     </div>
-                </div> <!-- /makeYourOwnDiv -->
+                </div>
             </div>
+
+            @foreach (var pizza in Model.fakePizzaDB)
+            {
+                var img = Url.Content($"~/images/{pizza.ImageTitle}.png");
+
+                <div class="col-12 col-md-4 mb-5 text-center">
+                    <img class="w-100 mb-2"
+                         src="@img"
+                         asp-append-version="true"
+                         alt="@pizza.PizzaName" />
+
+                    <a class="btn btn-primary mt-1"
+                       asp-page="Checkout/Checkout"
+                       asp-route-PizzaName="@pizza.PizzaName"
+                       asp-route-ImageTitle="@pizza.ImageTitle"
+                       asp-route-PizzaPrice="@pizza.FinalPrice">
+                        Get this Pizza
+                    </a>
+                </div>
+            }
         </div>
     </div>
 </div>
