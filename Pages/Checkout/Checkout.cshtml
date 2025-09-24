@@ -1,6 +1,26 @@
 ﻿@page
 @model MarkanPizzeria.Pages.Checkout.CheckoutModel
 @{
+    ViewData["Title"] = "Checkout";
 }
 
-<a class="nav-link text-dark" asp-area="" asp-page="CheckOut/ThankYou"> We Thank You !</a>
+<h1 class="text-center">Your Order!</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6 text-center">
+
+            <!-- Pizza image -->
+            <img class="w-50 mb-4" src="~/images/@(Model.ImageTitle).png" alt="@Model.PizzaName" />
+
+            <!-- Order details -->
+            <p>Your order for the pizza <strong>@Model.PizzaName</strong> is ready!</p>
+            <p>Total price for your order is: <strong>@Model.PizzaPrice €</strong></p>
+
+            <!-- Confirm button -->
+            <a class="btn btn-primary mt-3" asp-area="" asp-page="Checkout/ThankYou">
+                Confirm Order
+            </a>
+        </div>
+    </div>
+</div>
